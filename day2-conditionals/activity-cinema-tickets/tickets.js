@@ -26,12 +26,48 @@ const day = prompt("Day (Mon, Tue, ... Sun):");
 const is3D = (prompt("3D? (yes/no)") ?? "").toLowerCase() === "yes";
 const isStudent = (prompt("Student? (yes/no)") ?? "").toLowerCase() === "yes";
 
+
 if (Number.isNaN(age) || age < 0) {
   console.log("❌ Please enter a valid age.");
 } else {
   let price;
 
-  // 1. Base price by age
+
+if (age <3) {
+  price =0;
+} else if (age <=12) {
+  price= 2000;
+} else if (age <= 59) {
+  price = 4000;
+} else{
+  price = 2500;
+}
+
+
+let discountvalue;
+
+switch (day) {
+  case "Tue":
+  discountvalue = price *50/100;
+  price = price - discountvalue;
+  break;
+case "Sat":
+  case "Sun":
+    price = price +500;
+    break
+}
+
+    price = price + is3D ? 1000 : 0
+
+    let studentDiscountValue;
+    if (isStudent && age >= 13 && age <= 25) {
+      studentDiscountValue = price * 20 * 100;
+      price = price - studentDiscountValue;
+    }
+      console.log(`Final price: ₦${price}`);
+}
+
+
   if (age < 3) {
     price = 0;
   } else if (false /* TODO: 3 to 12 */) {
@@ -39,10 +75,11 @@ if (Number.isNaN(age) || age < 0) {
   }
   // TODO: remaining age brackets
 
+  
   // 2. Day adjustments with switch
   switch (day) {
     case "Tue":
-      // TODO
+    
       break;
     // TODO: weekend cases
   }
@@ -53,5 +90,4 @@ if (Number.isNaN(age) || age < 0) {
   // 4. Student discount with &&
   // TODO
 
-  console.log(`Final price: ₦${price}`);
-}
+

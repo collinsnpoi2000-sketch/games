@@ -4,7 +4,21 @@
 {
   console.group("05. if / else");
 
-  const score = 72;
+//if Block
+// if (the comaprison) {
+// //body of the code
+//}
+
+
+  const newAge = prompt ("enter your age");
+  
+  if(newAge < 18) {
+    alert(` At ${newAge}, you are still an underage fellow.`)
+  } else{
+    alert(`At ${newAge}, you an adult.`)
+  }
+
+  const score = prompt("enter student");
   let grade;
 
   if (score >= 70) {
